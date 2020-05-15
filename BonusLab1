@@ -1,0 +1,28 @@
+
+        List<Integer> coada = new ArrayList<>();
+        int[] vizitat = new int[n];
+
+        //verifica daca nodurile au fost vizitate
+        //adauga toate nodurile vizitate intr-o coada
+
+        coada.add(0);
+        vizitat[0]= 1;
+        int proces = 0;
+        while (proces < coada.size()) {
+            int nod = coada.get(proces);
+            proces++;
+            for (int i = 0; i < n; ++i) {
+                if (matrix[nod][i]) {
+                    if (vizitat[i] == 0) {
+                        coada.add(i);
+                        vizitat[i] = 1;
+                    }
+                }
+            }
+        }
+
+        String rez ="da";
+        for(int i=0;i< n;i++)
+            if(vizitat[i] == 1)
+                rez= "NU";
+        System.out.print("Este conex :" + rez + "\n");
